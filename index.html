@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>calculator</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>Calculator</h1>
+    <p>Points: <input type="number" id="points"></p>
+    <p>SL (Amount): <input type="number" id="sl"></p>
+    <button onclick="calculate()">Calculate Quantity</button>
+   <p>Quantity: <span id="quantity"></span></p>
+
+    <h2>Position build</h2>
+    
+
+   <style>
+  table {
+    border-collapse: collapse; /* merge the table borders for better spacing */
+    width: 30%; /* set the table width to 100% */
+  }
+  th, td {
+    padding: 1px; /* add some padding to the table headers and cells */
+    text-align: center; /* center the text within the cells */
+  }
+  th:first-child, td:first-child {
+    padding-left: 1px; /* add some left padding to the first column */
+  }
+  th:last-child, td:last-child {
+    padding-right: 1px; /* add some right padding to the last column */
+  }
+<style>
+  table {
+    border-collapse: collapse; /* merge the table borders for better spacing */
+    width: 30%; /* set the table width to 100% */
+  }
+  th, td {
+    padding: 1px; /* add some padding to the table headers and cells */
+    text-align: center; /* center the text within the cells */
+  }
+  th:first-child, td:first-child {
+    padding-left: 1px; /* add some left padding to the first column */
+  }
+  th:last-child, td:last-child {
+    padding-right: 1px; /* add some right padding to the last column */
+  }
+</style>
+
+<table>
+  <thead>
+    <tr>
+      <th>Percentage</th>
+      <th>RS</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>100%</td>
+      <td><span id="fixed100"></span></td>
+      <td><span id="100"></span></td>
+    </tr>
+    <tr>
+      <td>80%</td>
+      <td><span id="fixed80"></span></td>
+      <td><span id="80"></span></td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td><span id="fixed50"></span></td>
+      <td><span id="50"></span></td>
+    </tr>
+    <tr>
+      <td>30%</td>
+      <td><span id="fixed30"></span></td>
+      <td><span id="30"></span></td>
+    </tr>
+    <tr>
+      <td>20%</td>
+      <td><span id="fixed20"></span></td>
+      <td><span id="20"></span></td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+    <script>
+      function calculate() {
+        const sl = document.getElementById("sl").value;
+        const points = document.getElementById("points").value;
+        const quantity = Math.round(sl / points);
+        const fixed100 = (sl * 1.00 / points).toFixed(2);
+        const fixed80 = (sl * 0.80 / points).toFixed(2);
+        const fixed50 = (sl * 0.50 / points).toFixed(2);
+        const fixed30 = (sl * 0.30 / points).toFixed(2);
+        const fixed20 = (sl * 0.20 / points).toFixed(2);
+        document.getElementById("quantity").textContent = quantity;
+       document.getElementById("fixed100").textContent = (sl * 1.00).toLocaleString('en-IN', {style: 'currency', currency: 'INR'});
+document.getElementById("100").textContent = fixed100;
+document.getElementById("fixed80").textContent = (sl * 0.80).toLocaleString('en-IN', {style: 'currency', currency: 'INR'});
+document.getElementById("80").textContent = fixed80;
+document.getElementById("fixed50").textContent = (sl * 0.50).toLocaleString('en-IN', {style: 'currency', currency: 'INR'});
+document.getElementById("50").textContent = fixed50;
+document.getElementById("fixed30").textContent = (sl * 0.30).toLocaleString('en-IN', {style: 'currency', currency: 'INR'});
+document.getElementById("30").textContent = fixed30;
+document.getElementById("fixed20").textContent = (sl * 0.20).toLocaleString('en-IN', {style: 'currency', currency: 'INR'});
+document.getElementById("20").textContent = fixed20;
+
+      }
+    </script>
+  </body>
+</html>
